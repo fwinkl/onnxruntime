@@ -12,6 +12,8 @@ MY_DIR=$(dirname "${BASH_SOURCE[0]}")
 if [ "${AUDITWHEEL_PLAT}" == "manylinux2010_i686" ] || [ "${AUDITWHEEL_PLAT}" == "manylinux2014_i686" ]; then
 	echo "i386" > /etc/yum/vars/basearch
 	fixup-mirrors
+	yum install -y yum-plugin-versionlock
+	yum versionlock cuda* libcudnn*
 	yum -y update
 	fixup-mirrors
 	yum install -y util-linux-ng
