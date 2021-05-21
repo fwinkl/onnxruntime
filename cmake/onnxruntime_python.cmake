@@ -5,7 +5,7 @@ include(pybind11)
 
 if(NOT PYTHON_INCLUDE_DIR)
   set(PYTHON_NOT_FOUND false)
-  exec_program("${PYTHON_EXECUTABLE}"
+  exec_program("${Python_EXECUTABLE}"
     ARGS "-c \"import distutils.sysconfig; print(distutils.sysconfig.get_python_inc())\""
     OUTPUT_VARIABLE PYTHON_INCLUDE_DIR
     RETURN_VALUE PYTHON_NOT_FOUND)
